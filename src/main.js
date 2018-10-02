@@ -1,1 +1,4 @@
-document.getElementById('demo').innerHTML = "whats up?";
+require("./main.css");
+
+alert("something");
+var name = prompt('Enter Name');

@@ -1,5 +1,5 @@
 {
-    "name": "Webpack-Course",
+    "name": "webpack-course",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -18,6 +18,8 @@
     },
     "homepage": "https://github.com/Abdul-kaium/WebPack-Course#readme",
     "dependencies": {
+        "css-loader": "^1.0.0",
+        "style-loader": "^0.23.0",
         "webpack": "^4.20.2",
         "webpack-dev-server": "^3.1.9"
     },
