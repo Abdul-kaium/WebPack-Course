@@ -1,3 +1,18 @@
 body {
     color: rgb(61, 141, 211);
 }
+
+img {
+    width: 300px;
+    height: 300px;
+    margin: 0px auto;
+    display: block;
+    border-radius: 50%;
+}
+
+.primary_desc {
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

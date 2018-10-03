@@ -1,4 +1,8 @@
 require("./main.css");
+require("./index.html");
+alert("loaded New");
 
-alert("something");
-var name = prompt('Enter Name');
+var a = async() => {
+    await console.log("Hello From The babel!");
+    console.log("Done");
+}
