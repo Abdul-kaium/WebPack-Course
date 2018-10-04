@@ -1,5 +1,6 @@
 const path = require("path")
-
+const webpack = require("webpack");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     resolveLoader: {
         modules: ['node_modules'],
@@ -7,7 +8,8 @@ module.exports = {
         mainFields: ['loader', 'main']
     },
     entry: {
-        main: ["core-js/fn/promise", "./src/main.js"]
+        // main: ["core-js/fn/promise", "./src/main.js"]
+        main: ["./src/main.js"]
     },
     mode: "development",
     output: {
@@ -17,8 +19,13 @@ module.exports = {
     },
     devServer: {
         contentBase: "dist",
-        overlay: true
+        overlay: true,
+        hot: true,
+        stats: {
+            colors: true
+        }
     },
+    devtool: "source-map",
     module: {
         rules: [{
                 test: /\.js$/,
@@ -42,18 +49,8 @@ module.exports = {
             {
                 test: /\.html$/,
                 use: [{
-                        loader: "file-loader",
-                        options: {
-                            name: "[name].html"
-                        }
-                    },
-                    {
-                        loader: "extract-loader"
-                    },
-                    {
-                        loader: "html-loader"
-                    }
-                ]
+                    loader: "html-loader"
+                }]
             },
             {
                 test: /\.(jpg|png|gif|jpeg)$/,
@@ -65,5 +62,11 @@ module.exports = {
                 }]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new HTMLWebpackPlugin({
+            template: "./src/index.html"
+        })
+    ]
 }

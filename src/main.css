@@ -1,5 +1,5 @@
 body {
-    color: rgb(61, 141, 211);
+    background-color: rgb(172, 231, 226);
 }
 
 img {
@@ -8,6 +8,22 @@ img {
     margin: 0px auto;
     display: block;
     border-radius: 50%;
+    animation: animate 1.5s ease-in infinite;
+}
+
+@keyframes animate {
+    0% {
+        opacity: .2;
+        transform: scale(.5)
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: .2;
+        transform: scale(.5);
+    }
 }
 
 .primary_desc {
