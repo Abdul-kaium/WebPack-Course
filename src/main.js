@@ -6,9 +6,15 @@ require("./index.html");
 alert("Loaded");
 
 var a = async args => {
-    const { a, b } = args;
+    const {
+        a,
+        b
+    } = args;
     await console.log("Hello From The babel!");
     console.log("Done");
 }
-
-a({ a: 1, b: 4 });
+debugger
+a({
+    a: 1,
+    b: 4
+});

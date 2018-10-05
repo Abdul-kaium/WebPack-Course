@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(172, 231, 226);
+    background-color: rgb(4, 84, 95);
+    color: #fff;
 }
 
 img {
@@ -14,12 +15,18 @@ img {
 @keyframes animate {
     0% {
         opacity: .2;
-        transform: scale(.5)
+        transform: scale(.5);
+        -webkit-transform: scale(.5);
+        -moz-transform: scale(.5);
+        -ms-transform: scale(.5);
+        -o-transform: scale(.5);
     }
+
     50% {
         opacity: 1;
         transform: scale(1);
     }
+
     100% {
         opacity: .2;
         transform: scale(.5);
