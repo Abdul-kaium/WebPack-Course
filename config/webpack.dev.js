@@ -9,7 +9,7 @@ module.exports = {
     },
     entry: {
         // main: ["core-js/fn/promise", "./src/main.js"]
-        main: ["./src/main.js"]
+        main: ["babel-runtime/regenerator", "webpack-hot-middleware/client?reload=true", "./src/main.js"]
     },
     mode: "development",
     output: {
@@ -53,11 +53,27 @@ module.exports = {
                 }]
             },
             {
+                test: /\.pug$/,
+                use: [{
+                    loader: "pug-loader"
+                }]
+            },
+            {
+                test: /\.hbs$/,
+                use: [{
+                    loader: "handlebars-loader",
+                    query: {
+                        inlineRequires: "/images"
+                    }
+                }]
+            },
+            {
                 test: /\.(jpg|png|gif|jpeg)$/,
+
                 use: [{
                     loader: "file-loader",
                     options: {
-                        name: "images/[name].[ext]"
+                        name: "images/[name]-[hash:8].[ext]"
                     }
                 }]
             }
@@ -65,8 +81,14 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("development")
+            }
+        }),
         new HTMLWebpackPlugin({
-            template: "./src/index.html"
+            template: "./src/index.hbs",
+            title: "Webpack || Hooking Up ejs"
         })
     ]
 }
