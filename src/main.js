@@ -5,7 +5,7 @@
 // require("./main.css");
 // require("./nav.css");
 
-// require("./modern.css");
+//require("./modern.css");
 // require("./theme.css");
 // require("./jquery-ui.css");
 // // require("./header.css");
@@ -20,13 +20,13 @@
 
 require("./bootstrap.min.css");
 require("./style.css");
-// require("./jquery.min.js");
-// require("./jquery-ui");
-// require("./bootstrap.js");
-// require("./pickmeup.js");
-// require("./custom.js");
-// require("./header.js");
-// require("./jquery.flex-images.js");
+require("./jquery.min.js");
+require("./jquery-ui.js");
+require("./bootstrap.js");
+require("./pickmeup.js");
+require("./custom.js");
+require("./header.js");
+require("./jquery.flex-images.js");
 
 
 

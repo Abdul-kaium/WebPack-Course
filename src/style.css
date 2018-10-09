@@ -27,7 +27,7 @@ body {
 
 .header {
     height: 75vh;
-    background-image: linear-gradient(to right bottom, rgba(9, 109, 196, 0.7), rgba(0, 5, 10, 0.65)), url(../img/banner.png);
+    background-image: linear-gradient(to right bottom, rgba(9, 109, 196, 0.7), rgba(0, 5, 10, 0.65));
     background-size: cover;
     background-position: top;
     -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75vh, 0% 100%);
@@ -168,7 +168,6 @@ body {
         -ms-transform: translateX(-100px);
         -o-transform: translateX(-100px);
     }
-
     80% {
         transform: translateX(10px);
         -webkit-transform: translateX(10px);
@@ -176,7 +175,6 @@ body {
         -ms-transform: translateX(10px);
         -o-transform: translateX(10px);
     }
-
     /* 60%{
         transform: rotate(180deg);
     } */
@@ -195,7 +193,6 @@ body {
         -ms-transform: translateX(100px);
         -o-transform: translateX(100px);
     }
-
     80% {
         transform: translateX(-10px);
         -webkit-transform: translateX(-10px);
@@ -203,7 +200,6 @@ body {
         -ms-transform: translateX(-10px);
         -o-transform: translateX(-10px);
     }
-
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -219,7 +215,6 @@ body {
         -ms-transform: translateY(-200px);
         -o-transform: translateY(-200px);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -247,7 +242,6 @@ body {
     .upperimage {
         margin-top: 20%;
     }
-
     .heading {
         font-size: 32px;
         font-weight: 500;
@@ -379,7 +373,9 @@ body {
     padding: 5px;
 }
 
+
 /* Crown*/
+
 .common-image {
     width: 100%;
     height: auto;
