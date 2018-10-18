@@ -96,6 +96,11 @@ module.exports = {
         new MinifyPlugin(),
         new CompressionPlugin({
             algorithm: "gzip"
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            Util: 'exports-loader?Util!bootstrap/js/dist/util'
         })
     ]
 }
