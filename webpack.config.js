@@ -19,7 +19,7 @@ module.exports = {
     mode: "production",
     output: {
         filename: "[name]-bundle.js",
-        path: path.resolve(__dirname, "./dist"),
+        path: path.resolve(__dirname, "./dist/main"),
 
     },
     module: {
@@ -40,6 +40,13 @@ module.exports = {
                     {
                         loader: "css-loader"
 
+                    },
+                    {
+                        loader: 'resolve-url-loader',
+                        options: {
+                            keepQuery: true,
+
+                        }
                     }
                 ]
             },
@@ -67,11 +74,31 @@ module.exports = {
                     }
                 ]
             },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=image/svg+xml' },
-            { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff" },
-            { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff" },
-            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/octet-stream" },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader" },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                exclude: /node_modules/,
+                loader: 'file-loader?limit=1024&name=../fonts/[name].[ext]'
+            },
+            {
+                test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+                exclude: /node_modules/,
+                loader: 'file-loader?limit=1024&name=../fonts/[name].[ext]'
+            },
+            {
+                test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+                exclude: /node_modules/,
+                loader: 'file-loader?limit=1024&name=../fonts/[name].[ext]'
+            },
+            {
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                exclude: /node_modules/,
+                loader: 'file-loader?limit=1024&name=../fonts/[name].[ext]'
+            },
+            {
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                exclude: /node_modules/,
+                loader: 'file-loader?limit=1024&name=../fonts/[name].[ext]'
+            },
             {
                 test: /\.html$/,
                 use: [{
@@ -95,13 +122,16 @@ module.exports = {
             },
             {
                 test: /\.(jpg|png|gif|jpeg)$/,
+                exclude: /node_modules/,
+                loader: 'file-loader?limit=1024&name=../images/[name].[ext]'
+                    // use: [{
+                    //     loader: "file-loader",
+                    //     options: {
+                    //         name: "[name].[ext]",
 
-                use: [{
-                    loader: "file-loader",
-                    options: {
-                        name: "images/[name]-[hash:8].[ext]"
-                    }
-                }]
+                //     }
+                // }]
+
             }
         ]
     },
@@ -125,11 +155,6 @@ module.exports = {
         new MinifyPlugin(),
         new CompressionPlugin({
             algorithm: "gzip"
-        }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            Util: 'exports-loader?Util!bootstrap/js/dist/util'
         })
     ]
 }
