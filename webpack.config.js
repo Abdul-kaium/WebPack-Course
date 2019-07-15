@@ -67,11 +67,26 @@ module.exports = {
                     }
                 ]
             },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=image/svg+xml' },
-            { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff" },
-            { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff" },
-            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/octet-stream" },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader" },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'file-loader?mimetype=image/svg+xml'
+            },
+            {
+                test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file-loader?mimetype=application/font-woff"
+            },
+            {
+                test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file-loader?mimetype=application/font-woff"
+            },
+            {
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file-loader?mimetype=application/octet-stream"
+            },
+            {
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file-loader"
+            },
             {
                 test: /\.html$/,
                 use: [{
@@ -109,7 +124,11 @@ module.exports = {
         new OptimizeCSSAssetPlugin({
             assetNameRegExp: /\.css$/g,
             cssProcessor: require("cssnano"),
-            cssProcessorOptions: { discardComments: { removeAll: true } },
+            cssProcessorOptions: {
+                discardComments: {
+                    removeAll: true
+                }
+            },
             canPrint: true
         }),
         new MiniCSSExtractPlugin(),
@@ -125,11 +144,6 @@ module.exports = {
         new MinifyPlugin(),
         new CompressionPlugin({
             algorithm: "gzip"
-        }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            Util: 'exports-loader?Util!bootstrap/js/dist/util'
         })
     ]
 }

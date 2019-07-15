@@ -9,7 +9,7 @@ module.exports = {
     },
     entry: {
         // main: ["core-js/fn/promise", "./src/main.js"]
-        main: ["babel-runtime/regenerator", "webpack-hot-middleware/client?reload=true", "./src/main.js"]
+        main: ["./src/main.js"]
     },
     mode: "development",
     output: {

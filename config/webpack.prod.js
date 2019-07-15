@@ -80,7 +80,11 @@ module.exports = {
         new OptimizeCSSAssetPlugin({
             assetNameRegExp: /\.css$/g,
             cssProcessor: require("cssnano"),
-            cssProcessorOptions: { discardComments: { removeAll: true } },
+            cssProcessorOptions: {
+                discardComments: {
+                    removeAll: true
+                }
+            },
             canPrint: true
         }),
         new MiniCSSExtractPlugin(),
@@ -97,10 +101,10 @@ module.exports = {
         new CompressionPlugin({
             algorithm: "gzip"
         }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            Util: 'exports-loader?Util!bootstrap/js/dist/util'
-        })
+        // new webpack.ProvidePlugin({
+        //     $: 'jquery',
+        //     jQuery: 'jquery',
+        //     Util: 'exports-loader?Util!bootstrap/js/dist/util'
+        // })
     ]
 }
